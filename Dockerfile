@@ -15,7 +15,7 @@ COPY . .
 EXPOSE 5173
 
 # Production image
-FROM base AS bolt-ai-production
+FROM base AS mantisec-flowforge-sca-prod
 
 # Define environment variables with default values or let them be overridden
 ARG GROQ_API_KEY
@@ -48,11 +48,11 @@ RUN npm run build
 CMD [ "pnpm", "run", "dockerstart"]
 
 # Development image
-FROM base AS bolt-ai-development
+FROM base AS mantisec-flowforge-sca-dev
 
 # Define the same environment variables for development
 ARG GROQ_API_KEY
-ARG HuggingFace 
+ARG HuggingFace
 ARG OPENAI_API_KEY
 ARG ANTHROPIC_API_KEY
 ARG OPEN_ROUTER_API_KEY
